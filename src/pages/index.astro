@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Home">
+  <!-- Hero Section -->
+  <section class="relative w-full h-[85vh] min-h-[600px] flex items-start overflow-hidden">
+  <img
+    src="https://images.unsplash.com/photo-1589405858862-2ac9cbb41321?auto=format&fit=crop&w=1920&q=80"
+    alt="Snow-covered Saile mountain in Austria during daytime"
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="eager"
+  />
+    <div class="absolute inset-0 bg-black/30"></div>
+    <div class="relative z-10 w-full px-6 md:px-12 lg:pr-16 pt-8 md:pt-12">
+      <div class="md:ml-auto md:w-7/12 lg:w-1/2 text-white">
+        <h1 class="text-4xl md:text-6xl leading-tight mb-6 whitespace-nowrap">Rise Above Tax<br/>Uncertainty</h1>
+        <p class="text-lg md:text-xl font-sans opacity-90 mb-8">Ex-IRS veteran on your side. Tax preparation, representation, and advisory for individuals and businesses.</p>
+        <a href="/contact" class="btn-primary bg-white! text-[var(--color-navy)]! border-white!">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section-padding max-w-6xl mx-auto">
+    <h2 class="text-center mb-16">Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Tax Preparation -->
+      <a href="/services/tax-preparation" class="group block">
+        <div class="aspect-square overflow-hidden rounded-sm mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80"
+            alt="Financial documents on a warm-toned desk"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-xl mb-2">Tax Preparation</h3>
+        <p class="text-muted font-sans text-sm">Prepare and file your tax returns.</p>
+      </a>
+
+      <!-- Tax Representation -->
+      <a href="/services/tax-representation" class="group block">
+        <div class="aspect-square overflow-hidden rounded-sm mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80"
+            alt="Legal documents and professional workspace"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-xl mb-2">Tax Representation</h3>
+        <p class="text-muted font-sans text-sm">Get an ex-IRS veteran to represent you before the IRS.</p>
+      </a>
+
+      <!-- Tax Advisory -->
+      <a href="/services/tax-advisory" class="group block">
+        <div class="aspect-square overflow-hidden rounded-sm mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+            alt="Strategic planning with charts and analysis"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-xl mb-2">Tax Advisory</h3>
+        <p class="text-muted font-sans text-sm">Tax controversy resolution and tax strategy.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="section-padding bg-[var(--color-navy)]/5">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <img
+        src="/images/Nitasha Image.jpeg"
+        alt="Nitasha Ahuja, EA — Founder of Apex Tax Solutions"
+        class="w-full aspect-[4/5] object-cover rounded-sm"
+        loading="lazy"
+      />
+      <div>
+        <h2 class="mb-6">Ex-IRS Veteran<br/>on Your Side</h2>
+        <p class="text-muted font-sans mb-4">Nitasha Ahuja, EA — Enrolled Agent with 15+ years of IRS experience and an LLM in Taxation from Georgetown University Law Center.</p>
+        <p class="text-muted font-sans mb-8">From the Taxpayer Advocate Service to complex audits in Examination, Nitasha has seen the system from the inside. Now she uses that knowledge to help you navigate it.</p>
+        <a href="/about" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Form -->
+  <section class="section-padding">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="mb-4">Submit an Inquiry</h2>
+        <p class="text-muted font-sans">Provide project details to receive a tailored engagement outline.</p>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" class="flex flex-col gap-4">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="first_name" placeholder="First Name" required class="form-input" />
+        <input type="text" name="last_name" placeholder="Last Name" required class="form-input" />
+        <input type="email" name="email" placeholder="Email" required class="form-input" />
+        <textarea name="message" placeholder="Message" required class="form-input"></textarea>
+        <button type="submit" class="btn-primary self-start mt-2">Send</button>
+      </form>
+    </div>
+  </section>
+</Base>

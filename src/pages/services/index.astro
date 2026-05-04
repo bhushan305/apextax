@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Services" description="Tax preparation, tax representation, and tax advisory services from an ex-IRS Enrolled Agent.">
+  <section class="section-padding max-w-6xl mx-auto">
+    <h1 class="text-center mb-6">Services</h1>
+    <p class="text-center text-muted font-sans max-w-2xl mx-auto mb-16">Comprehensive tax services backed by 15+ years of IRS experience.</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <a href="/services/tax-preparation" class="group block">
+        <div class="aspect-square overflow-hidden rounded-sm mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80"
+            alt="Financial documents on a warm-toned desk"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-xl mb-2">Tax Preparation</h3>
+        <p class="text-muted font-sans text-sm">Prepare and file your tax returns.</p>
+      </a>
+
+      <a href="/services/tax-representation" class="group block">
+        <div class="aspect-square overflow-hidden rounded-sm mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80"
+            alt="Legal documents and professional workspace"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-xl mb-2">Tax Representation</h3>
+        <p class="text-muted font-sans text-sm">Get an ex-IRS veteran to represent you before the IRS.</p>
+      </a>
+
+      <a href="/services/tax-advisory" class="group block">
+        <div class="aspect-square overflow-hidden rounded-sm mb-6">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+            alt="Strategic planning with charts and analysis"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading="lazy"
+          />
+        </div>
+        <h3 class="text-xl mb-2">Tax Advisory</h3>
+        <p class="text-muted font-sans text-sm">Tax controversy resolution and tax strategy.</p>
+      </a>
+    </div>
+  </section>
+</Base>

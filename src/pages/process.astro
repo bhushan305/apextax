@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+
+const steps = [
+  {
+    num: "01",
+    title: "Consultation",
+    desc: "We start with a conversation to understand your situation, goals, and timeline. No commitment required."
+  },
+  {
+    num: "02",
+    title: "Engagement Letter",
+    desc: "Once we align on scope and fees, you receive a clear engagement letter outlining everything before work begins."
+  },
+  {
+    num: "03",
+    title: "Document Collection",
+    desc: "We provide a customized checklist and secure portal for uploading your documents. We handle the IRS communication."
+  },
+  {
+    num: "04",
+    title: "Resolution",
+    desc: "We execute the strategy, keep you informed at every step, and work toward the best possible outcome for your situation."
+  }
+];
+---
+
+<Base title="Our Process" description="How working with Apex Tax Solutions works — from initial consultation to resolution.">
+  <section class="section-padding">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="mb-6">Our Process</h1>
+      <p class="text-lg text-muted font-sans mb-16">A clear path from first conversation to resolution.</p>
+
+      <div class="space-y-12">
+        {steps.map((step) => (
+          <div class="flex gap-8 items-start">
+            <span class="font-serif text-4xl text-[var(--color-navy)] opacity-40 shrink-0">{step.num}</span>
+            <div>
+              <h3 class="text-xl mb-2">{step.title}</h3>
+              <p class="font-sans text-muted">{step.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16">
+        <a href="/contact" class="btn-primary">Start With a Consultation</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Contact" description="Get in touch with Apex Tax Solutions. Submit an inquiry for tax preparation, representation, or advisory services.">
+  <section class="section-padding">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+        <h1 class="mb-4">Submit an Inquiry</h1>
+        <p class="text-muted font-sans mb-8">Provide project details to receive a tailored engagement outline.</p>
+
+        <div class="mt-12">
+          <h3 class="text-lg mb-3">Get in Touch</h3>
+          <p class="font-sans text-muted mb-2">(415) 503-9056</p>
+          <p class="font-sans text-muted mb-2">info@goapextax.com</p>
+          <p class="font-sans text-muted">San Francisco, CA</p>
+        </div>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" class="flex flex-col gap-4">
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="first_name" placeholder="First Name" required class="form-input" />
+        <input type="text" name="last_name" placeholder="Last Name" required class="form-input" />
+        <input type="email" name="email" placeholder="Email" required class="form-input" />
+        <textarea name="message" placeholder="Message" required class="form-input"></textarea>
+        <button type="submit" class="btn-primary self-start mt-2">Send</button>
+      </form>
+    </div>
+  </section>
+</Base>
