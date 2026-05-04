@@ -1,0 +1,48 @@
+Apex Tax Solutions — Form → Google Sheet Wiring
+================================================
+
+Step 1: Create the Google Sheet
+-------------------------------
+- Go to sheets.google.com, create a new spreadsheet
+- Name it "Apex Tax Solutions — Leads"
+- The first sheet will be auto-named "Leads" and headers auto-created
+  on the first form submission. Or add them manually:
+  Timestamp | First Name | Last Name | Email | Service Interest | Message | Source | Stage | Owner | Next Step | Notes
+
+Step 2: Create the Apps Script
+------------------------------
+- With the Sheet open, go to Extensions → Apps Script
+- Delete any boilerplate code in Code.gs
+- Paste the contents of Code.gs from this folder
+- Save (Ctrl+S)
+
+Step 3: Deploy as Web App
+-------------------------
+- Click Deploy → New deployment
+- Click the gear icon → select "Web app"
+- Settings:
+    Description: "Form webhook v1"
+    Execute as: Me (your Google account)
+    Who has access: Anyone
+- Click Deploy
+- Authorize when prompted (review permissions → Allow)
+- Copy the Web App URL (looks like: https://script.google.com/macros/s/AKfycb.../exec)
+
+Step 4: Paste the URL into the site config
+------------------------------------------
+- Open src/config.js in the website repo
+- Replace PASTE_YOUR_APPS_SCRIPT_URL_HERE with the URL you copied
+- Commit and push — Netlify will auto-deploy
+
+Step 5: Test
+------------
+- Visit goapextax.com/contact
+- Submit a test inquiry
+- Check the Google Sheet — a new row should appear within a few seconds
+- Also check Netlify Forms dashboard (Settings → Forms) for the backup copy
+
+Updating the script later
+-------------------------
+If you edit Code.gs, you must create a NEW deployment version:
+  Deploy → Manage deployments → Edit (pencil icon) → New version → Deploy
+The URL stays the same.

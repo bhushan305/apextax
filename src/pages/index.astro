@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { GOOGLE_SCRIPT_URL } from '../config.js';
 ---
 
 <Base title="Home">
@@ -94,14 +95,60 @@ import Base from '../layouts/Base.astro';
         <h2 class="mb-4">Submit an Inquiry</h2>
         <p class="text-muted font-sans">Provide project details to receive a tailored engagement outline.</p>
       </div>
-      <form name="contact" method="POST" data-netlify="true" class="flex flex-col gap-4">
+      <form id="home-form" name="contact" method="POST" data-netlify="true" class="flex flex-col gap-4">
         <input type="hidden" name="form-name" value="contact" />
         <input type="text" name="first_name" placeholder="First Name" required class="form-input" />
         <input type="text" name="last_name" placeholder="Last Name" required class="form-input" />
         <input type="email" name="email" placeholder="Email" required class="form-input" />
         <textarea name="message" placeholder="Message" required class="form-input"></textarea>
         <button type="submit" class="btn-primary self-start mt-2">Send</button>
+        <p id="home-form-status" class="font-sans text-sm hidden"></p>
       </form>
     </div>
   </section>
 </Base>
+
+<script define:vars={{ GOOGLE_SCRIPT_URL }}>
+  document.getElementById("home-form").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const status = document.getElementById("home-form-status");
+    const original = btn.textContent;
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    status.classList.add("hidden");
+
+    const payload = {
+      first_name: form.first_name.value,
+      last_name:  form.last_name.value,
+      email:      form.email.value,
+      message:    form.message.value,
+      page:       "home",
+      source:     "website – home page"
+    };
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const netlifyData = new FormData(form);
+      await fetch("/", { method: "POST", body: netlifyData }).catch(() => {});
+
+      form.reset();
+      status.textContent = "Thank you! We'll be in touch soon.";
+      status.className = "font-sans text-sm text-green-700";
+    } catch (err) {
+      status.textContent = "Something went wrong. Please call us or try again.";
+      status.className = "font-sans text-sm text-red-600";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = original;
+    }
+  });
+</script>
